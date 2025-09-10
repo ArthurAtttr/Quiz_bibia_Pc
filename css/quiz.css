@@ -1,0 +1,171 @@
+/* ===== Body ===== */
+body {
+    font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #fcd5db, #da7e8d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* ===== Título do Quiz ===== */
+h2 {
+   font-family: URW Chancery L, cursive;
+    color: #ff1493;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+/* ===== Container da pergunta ===== */
+.quiz-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    max-width: 900px;    /* aumenta o limite da largura */
+    width: 100%;
+    padding: 40px 0;     /* aumenta o espaço interno */
+}
+
+/* ===== Caixa da opção ===== */
+.box {
+    background: rgba(247, 223, 234, 0.801);
+    padding: 30px 30px;
+    border-radius: 18px;
+    text-align: center;
+    width: 340px;
+    min-height: 80px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box:hover {
+    box-shadow: 0 0 30px rgba(221, 52, 66, 0.6);
+    transform: scale(1.03);
+}
+
+/* ===== Resposta correta ou errada ===== */
+.correto {
+    background-color: #d4edda !important;
+}
+
+.errado {
+    background-color: #f8d7da !important;
+}
+
+/* ===== Resultado ===== */
+.resultado {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ff1493;
+    font-weight: bold;
+}
+
+/* ===== Botão próxima página ===== */
+#proxima {
+    display: none;
+    margin-top: 20px;
+    padding: 16px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #ff69b4;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#proxima:hover {
+    background: #ff1493;
+}
+#confetti {
+  pointer-events: none;
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  z-index: 9999;
+  overflow: hidden;
+}
+.confetti-piece {
+  position: absolute;
+  width: 10px; height: 20px;
+  border-radius: 3px;
+  opacity: 0.8;
+  animation: confetti-fall 1.2s linear forwards;
+}
+@keyframes confetti-fall {
+  to {
+    transform: translateY(100vh) rotateZ(360deg);
+    opacity: 0;
+  }
+}
+#sad-emoji {
+  pointer-events: none;
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  z-index: 9999;
+  overflow: hidden;
+}
+.sad-emoji-piece {
+  position: absolute;
+  font-size: 2.2rem;
+  opacity: 0.85;
+  animation: sad-fall 1.2s linear forwards;
+}
+@keyframes sad-fall {
+  to {
+    transform: translateY(100vh) rotateZ(360deg) scale(1.2);
+    opacity: 0;
+  }
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    /* Se não usa imagem ou efeito aqui, pode remover este bloco */
+}
+
+.hearts-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.heart-shape {
+    position: absolute;
+    opacity: 0.30;
+    width: 90px;
+    height: 80px;
+    background: none;
+}
+
+.resultado-final {
+    position: relative;
+    z-index: 1; /* Fica acima dos corações */
+    background: rgba(247, 223, 234, 0.97);
+    padding: 50px 40px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(221, 52, 66, 0.18);
+    font-size: 2.5rem;
+    color: #ff1493;
+    font-weight: bold;
+    max-width: 600px;
+    width: 100%;
+    letter-spacing: 1px;
+}
+.quiz-container, .container {
+    position: relative;
+    z-index: 1;
+}
